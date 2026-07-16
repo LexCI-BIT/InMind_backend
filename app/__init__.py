@@ -1,0 +1,1 @@
+# InMind Backend — app package
