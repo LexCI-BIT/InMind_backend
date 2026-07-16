@@ -1,0 +1,24 @@
+# render.yaml — Render Blueprint (Infrastructure as Code)
+# https://render.com/docs/blueprint-spec
+#
+# Connect this repo to Render and it will auto-detect this file.
+
+services:
+  - type: web
+    name: inmind-backend
+    runtime: docker
+    repo: https://github.com/LexCI-BIT/InMind_backend.git
+    branch: main
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_PROJECT_REF
+        sync: false
+      - key: APP_ENV
+        value: production
